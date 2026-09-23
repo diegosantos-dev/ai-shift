@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-label="IA">
+  <defs>
+    <radialGradient id="core" cx="42%" cy="38%" r="58%">
+      <stop offset="0" stop-color="#FFDDB4" stop-opacity=".55"/>
+      <stop offset=".28" stop-color="#FF9433" stop-opacity=".42"/>
+      <stop offset=".62" stop-color="#FF7A00" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#FF7A00" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob" cx="38%" cy="40%" r="50%">
+      <stop offset="0" stop-color="#FFB673" stop-opacity=".5"/>
+      <stop offset=".55" stop-color="#EA7100" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#EA7100" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".9"/>
+      <stop offset=".35" stop-color="#FFDDB4" stop-opacity=".85"/>
+      <stop offset=".7" stop-color="#FF7A00" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#FF7A00" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <g opacity=".55">
+    <ellipse cx="260" cy="260" rx="168" ry="168" fill="url(#core)" filter="url(#soft)">
+      <animate attributeName="rx" values="160;176;160" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="172;158;172" dur="7.2s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="248" cy="248" rx="92" ry="118" fill="url(#blob)">
+      <animateTransform attributeName="transform" type="rotate" values="0 260 260;360 260 260" dur="18s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="278" cy="270" rx="78" ry="96" fill="url(#blob)" opacity=".7">
+      <animateTransform attributeName="transform" type="rotate" values="360 260 260;0 260 260" dur="14s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+
+  <g fill="none" stroke="url(#ring)" stroke-linecap="round" filter="url(#glow)">
+    <ellipse cx="260" cy="260" rx="132" ry="118" stroke-width="3.2" opacity=".85">
+      <animateTransform attributeName="transform" type="rotate" values="12 260 260;372 260 260" dur="9s" repeatCount="indefinite"/>
+      <animate attributeName="rx" values="128;138;128" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="122;110;122" dur="6s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="260" cy="260" rx="118" ry="136" stroke-width="2.2" opacity=".55">
+      <animateTransform attributeName="transform" type="rotate" values="-20 260 260;-380 260 260" dur="12s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="260" cy="260" rx="148" ry="108" stroke-width="1.6" opacity=".4">
+      <animateTransform attributeName="transform" type="rotate" values="80 260 260;440 260 260" dur="16s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+
+  <g fill="none" stroke="#FFB673" stroke-width="1.1" opacity=".28">
+    <path d="M180 210 C210 150, 310 150, 340 210">
+      <animate attributeName="d" dur="5.5s" repeatCount="indefinite"
+        values="M180 210 C210 150, 310 150, 340 210;M176 218 C214 162, 306 142, 344 206;M180 210 C210 150, 310 150, 340 210"/>
+    </path>
+    <path d="M168 270 C200 330, 320 330, 352 270">
+      <animate attributeName="d" dur="6.4s" repeatCount="indefinite"
+        values="M168 270 C200 330, 320 330, 352 270;M172 262 C196 338, 324 322, 348 276;M168 270 C200 330, 320 330, 352 270"/>
+    </path>
+  </g>
+</svg>
