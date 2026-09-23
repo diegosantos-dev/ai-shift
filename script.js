@@ -123,7 +123,10 @@ var src=p.photo||'';
 var photo=src
 ? '<img class="spk-photo" src="'+esc(src)+'" alt="'+esc(p.name)+'">'
 : '<span class="spk-photo spk-photo--fallback" aria-hidden="true">'+esc(initials(p.name))+'</span>';
-return '<article class="spk-card">'+photo+'<h3 class="spk-name">'+esc(p.name)+'</h3><p class="spk-talk">'+esc(p.talk)+'</p></article>';
+var linkedin=p.linkedin
+? '<a class="spk-in" href="'+esc(p.linkedin)+'" target="_blank" rel="noopener" aria-label="LinkedIn de '+esc(p.name)+'"><img src="icons/icon-linkedin.png" alt="" width="28" height="28"></a>'
+: '';
+return '<article class="spk-card">'+photo+'<h3 class="spk-name">'+esc(p.name)+linkedin+'</h3><p class="spk-talk">'+esc(p.talk)+'</p></article>';
 }
 
 function bindImgFallback(root){
