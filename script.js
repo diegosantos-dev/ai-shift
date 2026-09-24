@@ -322,12 +322,6 @@ return [{ name: ev.speaker, photo: ev.photo||ev.icon||'' }];
 }
 return [];
 }
-function peopleLabel(people){
-if(!people.length) return '';
-if(people.length===1) return people[0].name;
-if(people.length===2) return people[0].name.split(' ')[0]+' e '+people[1].name.split(' ')[0];
-return people[0].name.split(' ')[0]+' +'+(people.length-1);
-}
 function avatarFace(p){
 var name=p.name||'';
 if(p.icon==='ci'){
@@ -340,9 +334,13 @@ return '<span class="slot-av-img">'+esc(initials(name))+'</span>';
 function avatarBlock(ev){
 var people=sessionPeople(ev);
 if(!people.length) return '';
-var faces=people.slice(0,4).map(avatarFace).join('');
-var extra=people.length>4?'<span class="slot-av-more">+'+(people.length-4)+'</span>':'';
-return '<div class="slot-av'+(people.length>1?' is-many':'')+'"><div class="slot-av-stack">'+faces+extra+'</div><span class="slot-av-name">'+esc(peopleLabel(people))+'</span></div>';
+if(people.length===1){
+return '<div class="slot-av"><div class="slot-av-stack">'+avatarFace(people[0])+'</div><span class="slot-av-name">'+esc(people[0].name||'')+'</span></div>';
+}
+var rows=people.map(function(p){
+return '<div class="slot-av-person">'+avatarFace(p)+'<span class="slot-av-name">'+esc(p.name||'')+'</span></div>';
+}).join('');
+return '<div class="slot-av is-many">'+rows+'</div>';
 }
 
 function buildAgenda(){
@@ -365,7 +363,7 @@ html+='<div class="slot'+brk+party+hasTeams+'" data-i="'+i+'" data-dur="'+ev.dur
 '<h3 class="slot-title">'+esc(ev.title)+'</h3>'+
 '<p class="slot-track">'+esc(ev.track)+'</p>'+
 (ev.desc
-? '<p class="slot-desc">'+markAtletico(ev.desc)+'</p><button type="button" class="slot-more" hidden>Ler mais</button>'
+? '<p class="slot-desc">'+markAtletico(ev.desc)+'</p>'
 : '')+
 '<span class="slot-pill">'+ring+
 '<span class="slot-dur">'+fmtDur(ev.dur)+'</span>'+
@@ -388,35 +386,12 @@ slots=[].slice.call(list.querySelectorAll('.slot'));
 if(agendaSec) agendaSec.style.setProperty('--ticks', String(Math.max(1, slots.length)));
 bindImgFallback(list);
 list.addEventListener('click', function(e){
-var more=e.target.closest('.slot-more');
-if(more){
-e.preventDefault();
-e.stopPropagation();
-var sl=more.closest('.slot');
-if(!sl) return;
-var open=sl.classList.toggle('is-open');
-more.textContent=open?'Fechar':'Ler mais';
-computeGeom();
-if(!open) syncMoreButtons();
-return;
-}
 var card=e.target.closest('.slot-card'); if(!card) return;
 var sl=card.closest('.slot'); if(!sl) return;
 if(!sl.classList.contains('is-live')) return;
 var ev=AGENDA[+sl.getAttribute('data-i')];
 var url=teamsUrl(ev);
 if(url) window.open(url, '_blank', 'noopener');
-});
-syncMoreButtons();
-}
-
-function syncMoreButtons(){
-slots.forEach(function(sl){
-var desc=sl.querySelector('.slot-desc');
-var more=sl.querySelector('.slot-more');
-if(!desc||!more) return;
-if(sl.classList.contains('is-open')){ more.hidden=false; return; }
-more.hidden=desc.scrollHeight<=desc.clientHeight+2;
 });
 }
 
@@ -672,7 +647,6 @@ var c=c0+(c1-c0)*t;
 list.style.transform='translate3d(0,'+(machine.clientHeight/2-c)+'px,0)';
 var near=Math.round(idx);
 slots.forEach(function(sl,i){ sl.classList.toggle('is-center', i===near); });
-syncMoreButtons();
 }
 
 function frame(){
@@ -874,9 +848,19 @@ card.removeEventListener("transitionend", done);
 card.style.transition="";
 card.style.transform="";
 card.classList.add("docked");
+syncDateCard();
 });
 });
 });
+}
+
+function syncDateCard(){
+var card=document.getElementById("dateCard");
+var hero=document.getElementById("inicio");
+if(!card||!hero) return;
+if(window.innerWidth<=920){ card.classList.remove("tuck"); return; }
+var bottom=hero.getBoundingClientRect().bottom;
+card.classList.toggle("tuck", bottom<window.innerHeight-24);
 }
 
 function initHeader(){
@@ -889,6 +873,7 @@ if(y>lastY && y>HEADER+40) bar.classList.add("hide");
 else bar.classList.remove("hide");
 }
 lastY=y; ticking=false;
+syncDateCard();
 }
 window.addEventListener("scroll",function(){ if(!ticking){requestAnimationFrame(onScroll);ticking=true;} },{passive:true});
 
@@ -905,12 +890,12 @@ setActive(current);
 window.addEventListener("scroll",spyNav,{passive:true});
 spyNav();
 
-var card=document.getElementById("dateCard"), hero=document.getElementById("inicio");
+var hero=document.getElementById("inicio");
 if(hero && "IntersectionObserver" in window){
 var ho=new IntersectionObserver(function(entries){
 entries.forEach(function(en){
 heroInView=en.intersectionRatio>=0.45;
-if(card && card.classList.contains("docked")) card.classList.toggle("tuck", !heroInView);
+syncDateCard();
 if(liveWidget && liveWidget.classList.contains("is-on") && !liveWidgetClosed){
 liveWidget.classList.toggle("is-home", heroInView);
 }
@@ -918,6 +903,7 @@ liveWidget.classList.toggle("is-home", heroInView);
 },{threshold:[0,.35,.45,1]});
 ho.observe(hero);
 }
+syncDateCard();
 }
 
 function initParallax(){
@@ -1106,8 +1092,8 @@ initHeroType();
 introDateCard();
 startClock();
 setTimeout(function(){ computeGeom(); layoutReel(reelEase); },300);
-var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(function(){ computeGeom(); layoutReel(reelEase); },150); },{passive:true});
-window.addEventListener("load",function(){ computeGeom(); layoutReel(reelEase); });
+var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(function(){ computeGeom(); layoutReel(reelEase); syncDateCard(); },150); },{passive:true});
+window.addEventListener("load",function(){ computeGeom(); layoutReel(reelEase); syncDateCard(); });
 }
 
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
