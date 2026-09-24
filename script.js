@@ -1074,6 +1074,16 @@ window.addEventListener("scroll", markScroll, {passive:true});
 window.addEventListener("mousedown", function(e){
 pulseClick();
 if(e.target.closest && e.target.closest(".live-widget-close")) return;
+var closeBtn=document.getElementById("liveWidgetClose");
+if(closeBtn && active && active.classList.contains("live-widget") && pull>0.02){
+var cr=closeBtn.getBoundingClientRect();
+if(cx>=cr.left && cx<=cr.right && cy>=cr.top && cy<=cr.bottom){
+e.preventDefault();
+e.stopPropagation();
+closeBtn.click();
+return;
+}
+}
 if(!active || pull<0.35 || scrolling) return;
 if(active.contains(e.target)) return;
 e.preventDefault();
