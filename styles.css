@@ -435,6 +435,7 @@ html[data-theme="light"] .spk-in img{filter:brightness(0)}
 
 @media(max-width:720px){
   .agenda-stick{padding:88px 0 12px}
+  .speakers-row{gap:72px}
 }
 @media(max-width:520px){
   .agenda-list{--time-w:48px;--rail-w:16px;--slot-gap:10px}
