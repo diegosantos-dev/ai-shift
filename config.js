@@ -21,7 +21,7 @@ inviteUrl:
 brand: {
 mark: "S",
 name: "AI SHIFT",
-by: "by Customer Intelligence",
+by: "by Customer Engineering",
 },
 
 event: {
@@ -45,7 +45,7 @@ startNote: "Café e network",
 hero: {
 title: "AI SHIFT",
 subtitle: "Building the Future",
-lede: "O Time de Customer Intelligence te convida para um dia de conversa franca: como a IA está transformando a forma como construímos produtos digitais.",
+lede: "O Time de Customer Engineering te convida para um dia de conversa franca: como a IA está transformando a forma como construímos produtos digitais.",
 cta: "Quero participar",
 ctaUrl: "https://forms.cloud.microsoft/r/h3adE53xv3",
 note: "Presencial na Arena MRV e com transmissão online.",
@@ -105,7 +105,7 @@ icon: "team",
 },
 
 bridge: {
-copy: 'Um encontro com o time de Customer Intelligence para falarmos sobre como estamos construindo o Presente e o Futuro com <span class="bridge-accent">Inteligência Artificial, Dados e Engenharia de Software</span>.',
+copy: 'Um encontro com o time de Customer Engineering para falarmos sobre como estamos construindo o Presente e o Futuro com <span class="bridge-accent">Inteligência Artificial, Dados e Engenharia de Software</span>.',
 },
 
 reasons: {
@@ -154,7 +154,7 @@ desc: "Chegada na Arena MRV, café e um tempo pra se achar antes da abertura.",
 },
 {
 time: "09:15",
-dur: 20,
+dur: 10,
 title: "Abertura",
 track: "Palco principal",
 type: "flag",
@@ -163,15 +163,15 @@ people: [
 ],
 },
 {
-    time: "09:25",
-    dur: 20,
-    title: "Boas vindas",
-    track: "Palco principal",
-    type: "flag",
-    people: [
-    { name: "Iago Moura", photo: "photos/iago-moura.png" },
-    ],
-    },
+time: "09:25",
+dur: 10,
+title: "Boas vindas",
+track: "Palco principal",
+type: "flag",
+people: [
+{ name: "Iago Moura", photo: "photos/iago-moura.png" },
+],
+},
 {
 time: "09:35",
 dur: 45,
@@ -239,7 +239,7 @@ dur: 55,
 title: "Construindo o presente e o futuro",
 track: "Momento CI",
 type: "flag",
-people: [{ name: "Líderes Customer Intelligence", icon: "ci" }],
+people: [{ name: "Líderes Customer Engineering", icon: "ci" }],
 desc: "Como a área está contrubindo para a transformação da experiência do cliente hoje, enquanto desenha os próximos passos.",
 },
 {
@@ -332,7 +332,7 @@ title: "Happy hour",
 track: "Ninguém é de ferro",
 type: "glass",
 party: true,
-desc: "Copo na mão e o networking que só rola quando o crachá já foi pro bolso.",
+desc: "IA transforma o futuro, pessoas transformam a jornada. Vamos celebrar! 🎉",
 },
 ],
 },
@@ -353,7 +353,7 @@ linkedin: "https://www.linkedin.com/in/raquelbellini/",
 },
 {
 name: "Tiago Machado",
-talk: "Director of Digital Products, Inter",
+talk: "Director of Product Engineering, Inter",
 photo: "photos/tiago-machado.png",
 linkedin: "https://www.linkedin.com/in/tialmachado/",
 },
@@ -365,13 +365,13 @@ linkedin: "https://www.linkedin.com/in/cartolano/",
 },
 {
 name: "Iago Moura",
-talk: "Head of Product Engineering, Inter",
+talk: "Superintendent of , Inter",
 photo: "photos/iago-moura.png",
 linkedin: "https://www.linkedin.com/in/iagormoura/",
 },
 {
 name: "Carlos Pedrosa",
-talk: "Director of IT, Inter",
+talk: "Director of IT Services, Inter",
 photo: "photos/carlos-pedrosa.png",
 linkedin: "https://www.linkedin.com/in/carlos-pedrosa-77b88831/",
 },
@@ -426,3 +426,5 @@ query:
 "Arena MRV, Rua Cristina Maria de Assis, 202, Califórnia, Belo Horizonte, MG",
 },
 };
+
+
