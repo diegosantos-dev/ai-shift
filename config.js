@@ -208,6 +208,13 @@ desc: "Um bate-papo sobre como times se organizam quando agentes de IA entram na
 },
 {
 time: "11:10",
+dur: 15,
+title: "Descompressão",
+track: "Quiz",
+type: "break",
+},
+{
+time: "11:25",
 dur: 30,
 title: "IA em produção: governança, segurança, infra e custos",
 track: "Painel",
@@ -221,13 +228,6 @@ people: [
 desc: "O que muda na infraestrutura e nos processos de governança quando agentes de IA operam em produção? Controle, rastreabilidade, segurança e as decisões de infra que viabilizam ou travam a adoção de IA em escala.",
 },
 {
-time: "11:40",
-dur: 15,
-title: "Descompressão",
-track: "Quiz",
-type: "break",
-},
-{
 time: "11:55",
 dur: 120,
 title: "Almoço e tour Arena MRV - Estádio do Atlético-MG",
@@ -239,7 +239,7 @@ desc: "Mesa, tour na Arena MRV - Estádio do Atlético-MG e conversa sem slide."
 time: "13:55",
 dur: 55,
 title: "Construindo o presente e o futuro",
-track: "Momento CI",
+track: "Momento CE",
 type: "flag",
 people: [{ name: "Líderes Customer Engineering", icon: "ci" }],
 desc: "Como a área está contrubindo para a transformação da experiência do cliente hoje, enquanto desenha os próximos passos.",
