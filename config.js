@@ -439,6 +439,14 @@ sub: "Presencial na Arena MRV e com transmissão online.",
 query:
 "Arena MRV, Rua Cristina Maria de Assis, 202, Califórnia, Belo Horizonte, MG",
 },
+
+contact: {
+kicker: "Dúvidas?",
+lead: "Fale com a Luara",
+email: "luara.silva@inter.co",
+slack: "Luara Rebeca Alves Silva",
+slackUrl: "https://inter.enterprise.slack.com/tema/U072RCESLSD",
+},
 };
 
 

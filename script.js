@@ -74,6 +74,7 @@ buildSpeakers();
 buildPartners();
 buildArrive();
 applySoon();
+initHelp();
 }
 
 function applySoon(){
@@ -942,6 +943,47 @@ if(!hosts.length) return;
 function burst(){ hosts.forEach(function(h){ var n=1+Math.floor(Math.random()*2); while(n--) spawnPartyBit(h); }); }
 burst();
 setInterval(burst, 420);
+}
+
+function initHelp(){
+var c=SITE.contact||{};
+var root=document.getElementById('help');
+var btn=document.getElementById('helpToggle');
+var panel=document.getElementById('helpPanel');
+if(!root||!btn||!panel) return;
+if(!c.email&&!c.slackUrl){ root.hidden=true; return; }
+setTxt('helpKicker', c.kicker||'Dúvidas?');
+setTxt('helpLead', c.lead||'');
+var email=document.getElementById('helpEmail');
+if(email){
+if(c.email){ email.href='mailto:'+c.email; setTxt('helpEmailValue', c.email); }
+else email.hidden=true;
+}
+var slack=document.getElementById('helpSlack');
+if(slack){
+if(c.slackUrl){
+slack.href=c.slackUrl;
+slack.target='_blank';
+slack.rel='noopener';
+setTxt('helpSlackValue', c.slack||'Slack');
+} else slack.hidden=true;
+}
+function setOpen(open){
+btn.setAttribute('aria-expanded', open?'true':'false');
+panel.hidden=!open;
+btn.classList.toggle('is-open', open);
+}
+btn.addEventListener('click', function(e){
+e.stopPropagation();
+setOpen(panel.hidden);
+});
+document.addEventListener('click', function(e){
+if(panel.hidden||root.contains(e.target)) return;
+setOpen(false);
+});
+document.addEventListener('keydown', function(e){
+if(e.key==='Escape'&&!panel.hidden) setOpen(false);
+});
 }
 
 function initTheme(){
