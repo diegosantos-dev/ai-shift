@@ -795,19 +795,31 @@ toggle.setAttribute("aria-label", open?"Fechar menu":"Abrir menu");
 }
 }
 function closeMenu(){ setMenu(false); }
+function closeHelp(){
+var helpBtn=document.getElementById("helpToggle");
+var panel=document.getElementById("helpPanel");
+if(!panel||panel.hidden) return;
+panel.hidden=true;
+if(helpBtn){
+helpBtn.setAttribute("aria-expanded","false");
+helpBtn.classList.remove("is-open");
+}
+if(bar) bar.classList.remove("help-open");
+}
 if(toggle){
 toggle.addEventListener("click", function(){
 setMenu(!bar.classList.contains("is-open"));
 });
 }
 document.addEventListener("keydown", function(e){
-if(e.key==="Escape") closeMenu();
+if(e.key==="Escape"){ closeHelp(); closeMenu(); }
 });
 document.querySelectorAll('a[data-scroll]').forEach(function(a){
 a.addEventListener("click",function(e){
 var id=a.getAttribute("href"); if(!id||id.charAt(0)!=="#")return;
 var el=document.querySelector(id); if(!el)return;
 e.preventDefault();
+closeHelp();
 closeMenu();
 document.querySelectorAll(".nav a[data-scroll]").forEach(function(n){ n.classList.toggle("active", n.getAttribute("href")===id); });
 if(id==="#agenda" && !agendaSoon && slots.length){
@@ -869,7 +881,7 @@ var bar=document.getElementById("topbar"), lastY=window.pageYOffset, ticking=fal
 function onScroll(){
 var y=window.pageYOffset;
 bar.classList.toggle("scrolled", y>12);
-if(!navLock && !(bar && bar.classList.contains("is-open"))){
+if(!navLock && !(bar && (bar.classList.contains("is-open") || bar.classList.contains("help-open")))){
 if(y>lastY && y>HEADER+40) bar.classList.add("hide");
 else bar.classList.remove("hide");
 }
@@ -972,6 +984,8 @@ function setOpen(open){
 btn.setAttribute('aria-expanded', open?'true':'false');
 panel.hidden=!open;
 btn.classList.toggle('is-open', open);
+var bar=document.getElementById('topbar');
+if(bar) bar.classList.toggle('help-open', open);
 }
 btn.addEventListener('click', function(e){
 e.stopPropagation();
