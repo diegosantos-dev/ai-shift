@@ -15,7 +15,7 @@ minute: 20,
 
 teams: {
 inviteUrl:
-"https://events.teams.microsoft.com/event/b05de292-4ed9-4855-bef4-61c9d3e53f37@05e665c9-c502-4a19-98a5-a913a6f52be8?source=copyLinkLegacyShareLinkDialog",
+"https://inter-co.zoom.us/j/91665509349",
 },
 
 brand: {
@@ -237,7 +237,7 @@ desc: "Mesa, tour na Arena MRV - Estádio do Atlético-MG e conversa sem slide."
 },
 {
 time: "13:55",
-dur: 55,
+dur: 45,
 title: "Construindo o presente e o futuro",
 track: "Momento CE",
 type: "flag",
@@ -245,15 +245,7 @@ people: [{ name: "Líderes Customer Engineering", icon: "ci" }],
 desc: "Como a área está contrubindo para a transformação da experiência do cliente hoje, enquanto desenha os próximos passos.",
 },
 {
-time: "14:50",
-dur: 40,
-title: "Plataformas de IA no Inter: da infra ao produto",
-track: "Palestra",
-type: "layers",
-desc: "Como o Inter está construindo sua plataforma de IA: da infraestrutura que suporta os modelos até as ferramentas que chegam ao cliente e otimizam o trabalho interno dos times de engenharia.",
-},
-{
-time: "15:30",
+time: "14:40",
 dur: 30,
 title: "Não leia o código",
 track: "Palestra",
@@ -264,21 +256,25 @@ people: [
 desc: "Desenvolvimento agêntico de software.",
 },
 {
-time: "16:00",
+time: "15:10",
 dur: 30,
-title: "Palestra a confirmar",
+title: "SAASpocalipse e a Arquitetura aberta da Salesforce",
 track: "Palestra",
 type: "mic",
+people: [
+{ name: "Rogers Tumasonis", photo: "photos/rogers-tumasonis.png" },
+],
+desc: "Como conectar dados, modelos e agentes sem migrar o que já existe",
 },
 {
-time: "16:30",
+time: "15:40",
 dur: 15,
 title: "Descompressão",
 track: "Quiz",
 type: "break",
 },
 {
-time: "16:45",
+time: "15:55",
 dur: 30,
 title:
 "Agentes de voz: o que muda quando a latência é requisito funcional",
@@ -293,7 +289,7 @@ photo: "photos/guilherme-radomysler.png",
 desc: "Uma conversa por voz dá ao sistema frações de um segundo para responder. Essa restrição define a arquitetura por baixo: cascata de modelos pequenos, detecção do fim de uma fala e otimização de ferramentas. As decisões de engenharia, os erros pelo caminho e o que ainda está sendo construído.",
 },
 {
-time: "17:15",
+time: "16:25",
 dur: 30,
 title:
 "Como enxergamos o futuro do setor financeiro e do Inter diante da escala da IA",
@@ -308,22 +304,22 @@ photo: "photos/eduardo-cotta.png"
 desc: "Uma conversa sobre como a inteligência artificial está redesenhando o setor financeiro e qual o papel do Inter nesse cenário.",
 },
 {
-time: "17:45",
+time: "16:55",
 dur: 10,
 title: "Descompressão",
 track: "Quiz",
 type: "break",
 },
 {
-time: "17:55",
-dur: 20,
+time: "17:05",
+dur: 10,
 title: "Encerramento",
 track: "Palco principal",
 type: "flag",
 people: [{ name: "Iago Moura", photo: "photos/iago-moura.png" }],
 },
 {
-time: "18:15",
+time: "17:15",
 dur: 105,
 title: "Happy hour",
 track: "Ninguém é de ferro",
@@ -395,6 +391,12 @@ name: "Raquel Bellini",
 talk: "Specialist of Strategic Communication, Inter",
 photo: "photos/raquel-bellini.png",
 linkedin: "https://www.linkedin.com/in/raquelbellini/",
+},
+{
+name: "Rogers Tumasonis",
+talk: "Enterprise Architect, Salesforce Brazil",
+photo: "photos/rogers-tumasonis.png",
+linkedin: "https://www.linkedin.com/in/tumasonis/",
 },
 {
 name: "Tiago Machado",
