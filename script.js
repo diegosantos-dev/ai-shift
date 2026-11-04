@@ -16,6 +16,15 @@ function pad(n){ return (n<10?'0':'')+n; }
 function toMin(s){ var p=String(s).split(':'); return (+p[0])*60+(+p[1]); }
 function fmtDur(m){ m=Math.max(0,Math.round(m)); if(m>=60){var h=Math.floor(m/60),mm=m%60;return h+'h'+(mm?pad(mm):'');} return m+' min'; }
 function setTxt(id, v){ var el=document.getElementById(id); if(el) el.textContent=v==null?'':v; }
+function applyBrandMark(mark){
+var el=document.getElementById('brandMark');
+if(!el) return;
+if(/\.(png|jpe?g|svg|webp|gif)$/i.test(mark||'')){
+el.innerHTML='<img src="'+esc(mark)+'" alt="">';
+return;
+}
+el.textContent=mark||'';
+}
 function setHtml(id, v){ var el=document.getElementById(id); if(el) el.innerHTML=v||''; }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; }); }
 function markAtletico(s){
@@ -32,7 +41,7 @@ return (SITE.teams && SITE.teams.inviteUrl) || '';
 function applySite(){
 var b=SITE.brand||{}, e=SITE.event||{}, h=SITE.hero||{}, r=SITE.reasons||{}, a=SITE.agenda||{};
 document.title = (b.name||'AI SHIFT')+' · '+(h.subtitle||'');
-setTxt('brandMark', b.mark||'S');
+applyBrandMark(b.mark);
 setHtml('brandName', (b.name||'AI SHIFT').replace(/ /g,'&nbsp;'));
 setTxt('brandBy', b.by||'');
 setHtml('heroTitle', (h.title||'').replace(/ /g,'&nbsp;')+

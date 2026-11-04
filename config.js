@@ -19,7 +19,7 @@ inviteUrl:
 },
 
 brand: {
-mark: "S",
+mark: "logos/customer-engineering.png",
 name: "AI SHIFT",
 by: "by Customer Engineering",
 },

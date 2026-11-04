@@ -152,7 +152,8 @@ html[data-theme="light"] .theme-toggle .ic-moon{display:none}
 .topbar.scrolled{background:var(--header-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--ink-600)}
 .topbar-inner{display:flex;align-items:center;gap:16px;height:var(--header-h)}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:700;font-size:19px;letter-spacing:.02em}
-.brand .mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--orange-400),var(--orange-600));display:grid;place-items:center;color:var(--on-orange);font-weight:800;font-size:16px;font-family:var(--font-display)}
+.brand .mark{width:32px;height:32px;border-radius:9px;overflow:hidden;display:grid;place-items:center;background:#0D0D0D;flex:0 0 32px}
+.brand .mark img{width:100%;height:100%;object-fit:contain;display:block}
 .brand-by{color:var(--text-low);font-size:13px;font-weight:500;padding-left:16px;border-left:1px solid var(--ink-600);white-space:nowrap}
 .nav{margin:0 auto;display:flex;align-items:center;gap:20px}
 @media(min-width:1081px){
