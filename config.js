@@ -282,8 +282,8 @@ track: "Palestra",
 type: "mic",
 people: [
 {
-name: "Guilherme Radomysler",
-photo: "photos/guilherme-radomysler.png",
+name: "José Paulo Petry",
+photo: "photos/jose-paulo-petry.JPG",
 },
 ],
 desc: "Uma conversa por voz dá ao sistema frações de um segundo para responder. Essa restrição define a arquitetura por baixo: cascata de modelos pequenos, detecção do fim de uma fala e otimização de ferramentas. As decisões de engenharia, os erros pelo caminho e o que ainda está sendo construído.",
@@ -363,9 +363,9 @@ photo: "photos/etienne-cartolano.png",
 linkedin: "https://www.linkedin.com/in/cartolano/",
 },
 {
-name: "Guilherme Radomysler",
+name: "José Paulo Petry",
 talk: "Deployment Lead, ElevenLabs",
-photo: "photos/guilherme-radomysler.png",
+photo: "photos/jose-paulo-petry.JPG",
 linkedin: "https://www.linkedin.com/in/guilherme-radomysler/",
 },
 {
