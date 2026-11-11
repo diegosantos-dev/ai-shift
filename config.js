@@ -201,8 +201,7 @@ track: "Painel",
 type: "users",
 people: [
 { name: "Etienne Cartolano", photo: "photos/etienne-cartolano.png" },
-{ name: "Tiago Machado", photo: "photos/tiago-machado.png" },
-{ name: "Iago Moura", photo: "photos/iago-moura.png" },
+{ name: "Tiago Machado", photo: "photos/tiago-machado.png" }
 ],
 desc: "Um bate-papo sobre como times se organizam quando agentes de IA entram na equação, o que isso exige de pessoas, processos e na forma de entregar.",
 },
