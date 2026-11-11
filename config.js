@@ -364,9 +364,9 @@ linkedin: "https://www.linkedin.com/in/cartolano/",
 },
 {
 name: "José Paulo Petry",
-talk: "Deployment Lead, ElevenLabs",
+talk: "Forward Deployed Engineer, ElevenLabs",
 photo: "photos/jose-paulo-petry.JPG",
-linkedin: "https://www.linkedin.com/in/guilherme-radomysler/",
+linkedin: "https://www.linkedin.com/in/petrybr/",
 },
 {
 name: "Iago Moura",
