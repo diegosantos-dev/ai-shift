@@ -57,7 +57,7 @@
 <a href="#participar" data-scroll>Por que participar?</a>
 <a href="#palestrantes" data-scroll>Palestrantes</a>
 <a href="#agenda" data-scroll>Agenda</a>
-<a href="#chegar" data-scroll>Como chegar</a>
+<a href="#fotos" data-scroll>Fotos do evento</a>
 <div class="help" id="help">
 <div class="help-panel" id="helpPanel" hidden role="dialog" aria-labelledby="helpKicker">
 <p class="help-kicker" id="helpKicker"></p>
@@ -86,8 +86,8 @@
 </nav>
 
 <div class="topbar-actions">
-<a class="btn btn-primary btn-sm topbar-cta" href="https://forms.cloud.microsoft/r/h3adE53xv3" target="_blank" rel="noopener">
-<span data-cta>Quero participar</span>
+<a class="btn btn-primary btn-sm topbar-cta" href="#fotos" data-scroll>
+<span data-cta>Veja aqui as fotos do evento</span>
 <span class="btn-tick" aria-hidden="true">
 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 </span>
@@ -102,8 +102,8 @@
 <h1 class="hero-title reveal" data-delay="0" id="heroTitle"></h1>
 <p class="hero-lede reveal" data-delay="1" id="heroLede"></p>
 <div class="hero-actions reveal" data-delay="2">
-<a class="btn btn-primary btn-lg" href="https://forms.cloud.microsoft/r/h3adE53xv3" target="_blank" rel="noopener" id="save">
-<span data-cta>Quero participar</span>
+<a class="btn btn-primary btn-lg" href="#fotos" data-scroll id="save">
+<span data-cta>Veja aqui as fotos do evento</span>
 <span class="btn-tick" aria-hidden="true">
 <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
 </span>
@@ -216,24 +216,11 @@
 </div>
 </section>
 
-<section class="arrive snap" id="chegar">
-<div class="wrap arrive-grid">
-<header class="arrive-copy">
-<p class="eyebrow r-reveal" id="arriveEyebrow"></p>
-<h2 class="arrive-title r-reveal" data-delay="1" id="arriveTitle"></h2>
-<p class="arrive-sub r-reveal" data-delay="2" id="arriveSub"></p>
-<address class="arrive-address r-reveal" data-delay="3">
-<span id="arriveAddress"></span>
-<button type="button" class="copy-addr" id="copyAddr" aria-label="Copiar endereço">
-<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5h10"/></svg>
-<span id="copyAddrLabel">Copiar</span>
-</button>
-</address>
-</header>
-<div class="arrive-map-wrap r-reveal" data-delay="2">
-<iframe class="arrive-map" id="arriveMap" title="Mapa da Arena MRV" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-<div class="arrive-bar" id="arriveBar"></div>
-</div>
+<section class="arrive snap" id="fotos" aria-labelledby="fotosTitle">
+<div class="wrap">
+<h2 class="arrive-title" id="fotosTitle">Fotos do evento</h2>
+<iframe src="https://curva.pixieset.com/semcenainteriashift/#" title="Galeria de fotos do AI Shift" loading="lazy" style="display:block;width:100%;height:70vh;border:0" allowfullscreen></iframe>
+<a href="https://curva.pixieset.com/semcenainteriashift/#" target="_blank" rel="noopener">Abrir galeria no Pixieset</a>
 </div>
 </section>
 
