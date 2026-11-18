@@ -46,8 +46,8 @@ hero: {
 title: "AI SHIFT",
 subtitle: "Building the Future",
 lede: "O Time de Customer Engineering te convida para um dia de conversa franca: como a IA está transformando a forma como construímos produtos digitais.",
-cta: "Quero participar",
-ctaUrl: "https://forms.cloud.microsoft/r/h3adE53xv3",
+cta: "Veja aqui as fotos do evento",
+ctaUrl: "#fotos",
 note: "Presencial na Arena MRV e com transmissão online.",
 visual: "ai-orb.svg",
 },
@@ -414,14 +414,6 @@ items: [
 { name: "Salesforce", src: "logos/salesforce.png" },
 { name: "ACT Digital", src: "logos/act.jpg" },
 ],
-},
-
-arrive: {
-eyebrow: "Como chegar",
-title: "Arena MRV",
-sub: "Presencial na Arena MRV e com transmissão online.",
-query:
-"Arena MRV, Rua Cristina Maria de Assis, 202, Califórnia, Belo Horizonte, MG",
 },
 
 contact: {
