@@ -48,12 +48,11 @@ setHtml('heroTitle', (h.title||'').replace(/ /g,'&nbsp;')+
 '<span class="hero-title__line"><span id="heroType"></span><span class="hero-caret" aria-hidden="true"></span></span>');
 setTxt('heroLede', h.lede||'');
 setTxt('heroNote', h.note||'');
-document.querySelectorAll('[data-cta]').forEach(function(el){ el.textContent=h.cta||'Quero participar'; });
+document.querySelectorAll('[data-cta]').forEach(function(el){ el.textContent=h.cta||'Veja aqui as fotos do evento'; });
 if(h.ctaUrl){
 document.querySelectorAll('a.btn-primary').forEach(function(a){
 a.href=h.ctaUrl;
-a.target='_blank';
-a.rel='noopener';
+
 });
 }
 var vis=document.getElementById('heroVisual');
@@ -81,7 +80,7 @@ var br=SITE.bridge||{};
 setHtml('bridgeCopy', br.copy||'');
 buildSpeakers();
 buildPartners();
-buildArrive();
+
 applySoon();
 initHelp();
 }
@@ -212,80 +211,6 @@ html+='</div>';
 });
 board.innerHTML=html;
 bindImgFallback(board);
-}
-
-function fullAddress(){
-var e=SITE.event||{};
-return [e.venue, e.street, e.neighborhood, e.city, e.state, e.zip].filter(Boolean).join(', ');
-}
-
-function isPhone(){
-return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent||'');
-}
-
-function buildArrive(){
-var a=SITE.arrive||{}, e=SITE.event||{};
-setTxt('arriveEyebrow', a.eyebrow);
-setTxt('arriveTitle', a.title||e.venue);
-setTxt('arriveSub', a.sub);
-var addrEl=document.getElementById('arriveAddress');
-if(addrEl){
-addrEl.innerHTML=esc(e.street)+'<br>'+esc(e.neighborhood)+' · '+esc(e.city)+', '+esc(e.state)+
-(e.zip?'<br>CEP '+esc(e.zip):'');
-}
-var copy=document.getElementById('copyAddr');
-if(copy){
-copy.addEventListener('click', function(){
-var text=fullAddress();
-var ok=function(){
-copy.classList.add('is-ok');
-setTxt('copyAddrLabel', 'Copiado');
-setTimeout(function(){ copy.classList.remove('is-ok'); setTxt('copyAddrLabel', 'Copiar'); }, 1600);
-};
-if(navigator.clipboard && navigator.clipboard.writeText){
-navigator.clipboard.writeText(text).then(ok).catch(function(){ window.prompt('Copie o endereço', text); });
-} else {
-window.prompt('Copie o endereço', text);
-}
-});
-}
-var q=encodeURIComponent(a.query||fullAddress());
-var map=document.getElementById('arriveMap');
-if(map) map.src='https://maps.google.com/maps?q='+q+'&hl=pt-BR&z=15&output=embed';
-var bar=document.getElementById('arriveBar');
-if(!bar) return;
-var googleWeb='https://www.google.com/maps/search/?api=1&query='+q;
-bar.innerHTML=
-'<p class="arrive-bar-label">Abrir no app</p>'+
-'<div class="arrive-apps">'+
-'<button type="button" class="arrive-app" data-app="maps" aria-label="Google Maps"><span class="arrive-app-ic maps"></span><span>Maps</span></button>'+
-'<button type="button" class="arrive-app" data-app="waze" aria-label="Waze"><span class="arrive-app-ic waze"></span><span>Waze</span></button>'+
-'<button type="button" class="arrive-app" data-app="uber" aria-label="Uber"><span class="arrive-app-ic uber"></span><span>Uber</span></button>'+
-'</div>'+
-'<a class="arrive-web" href="'+googleWeb+'" target="_blank" rel="noopener">Abrir no Google Maps</a>';
-bar.querySelectorAll('[data-app]').forEach(function(btn){
-btn.addEventListener('click', function(){ openNavApp(btn.getAttribute('data-app'), q, googleWeb); });
-});
-}
-
-function openNavApp(app, q, googleWeb){
-var phone=isPhone();
-var dest=decodeURIComponent(q);
-var uberDrop='https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]='+q;
-if(app==='maps'){
-if(phone) window.location.href='comgooglemaps://?q='+q;
-setTimeout(function(){ window.open(googleWeb, '_blank', 'noopener'); }, phone?400:0);
-return;
-}
-if(app==='waze'){
-if(phone) window.location.href='waze://?q='+q+'&navigate=yes';
-setTimeout(function(){ window.open('https://waze.com/ul?q='+q+'&navigate=yes', '_blank', 'noopener'); }, phone?400:0);
-return;
-}
-if(app==='uber'){
-if(phone) window.location.href='uber://riderequest?dropoff[formatted_address]='+encodeURIComponent(dest);
-setTimeout(function(){ window.open(uberDrop, '_blank', 'noopener'); }, phone?400:0);
-}
 }
 
 function eventStart(){
@@ -531,7 +456,7 @@ bindImgFallback(av);
 }
 var cta=document.getElementById('liveWidgetCta');
 if(cta){
-if(url){ cta.href=url; cta.textContent='Abrir no Teams'; cta.removeAttribute('aria-disabled'); }
+if(url){ cta.target='_blank'; cta.href=url; cta.textContent='Abrir no Teams'; cta.removeAttribute('aria-disabled'); }
 else { cta.removeAttribute('href'); cta.setAttribute('aria-disabled','true'); }
 }
 }
@@ -565,8 +490,8 @@ setTxt('liveWidgetTitle', (e.day||12)+' de '+(e.monthName||'novembro')+' · '+ (
 var cta=document.getElementById('liveWidgetCta');
 var form=(SITE.hero&&SITE.hero.ctaUrl)||'';
 if(cta){
-cta.textContent=SITE.hero&&SITE.hero.cta||'Quero participar';
-if(form){ cta.href=form; cta.removeAttribute('aria-disabled'); }
+cta.textContent=SITE.hero&&SITE.hero.cta||'Veja aqui as fotos do evento';
+if(form){ cta.target='_self'; cta.href=form; cta.removeAttribute('aria-disabled'); }
 }
 }
 
